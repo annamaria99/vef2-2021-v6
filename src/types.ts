@@ -33,13 +33,13 @@ interface IFilms {
   films: Array<IFilm>;
 }
 
-interface IAllPeople {
+interface IAllCharacters {
   people: Array<ICharacter>;
   pageInfo: IPaging;
 }
 
 export interface IPeopleResponse {
-  allPeople: IAllPeople;
+  allPeople: IAllCharacters;
 }
 
 interface IPaging {
