@@ -18,7 +18,6 @@ export interface ICharacterConnection {
   characters: Array<ICharacter>;
 }
 
-
 export interface IFilm {
   title: string;
   episodeID: number;

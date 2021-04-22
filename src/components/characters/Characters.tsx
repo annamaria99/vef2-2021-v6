@@ -25,11 +25,9 @@ export function Characters({ persons }: Props): JSX.Element {
 
       const data = await fetch(`/api/characters?after=${nextPage}`);
       const jsonData = await data.json();
-  
       setCharacters(characters.concat(jsonData.allPeople.people));
       setNextPage(jsonData.allPeople.pageInfo.endCursor);
       setHasNextPage(jsonData.allPeople.pageInfo.hasNextPage);
-  
       setLoading(false);
     }
   };

@@ -1,6 +1,4 @@
 // fetch er sjálfgefið hér; next sér um að importa
-
-import { characterFragment } from '../graphql/characterFragment';
 import { IPeopleResponse } from '../types';
 
 // Ekki þarf að geyma í env
@@ -42,7 +40,7 @@ export async function fetchSwapi<T>(
 // Gott að hafa sameiginlegt fall hér til að sækja fyrstu síðu á /pages/character/index.tsx og
 // næstu á /pages/api/character.ts
 // TODO EKKI any hér!
-export async function fetchCharacters(after=''): Promise<IPeopleResponse> {
+export async function fetchCharacters(after = ''): Promise<IPeopleResponse> {
   // Höldum query hér til að geta séð hvernig við erum að sækja
   // Nákvæmlega hvað við sækjum per character er skilgreint í fragmenti
   const query = `

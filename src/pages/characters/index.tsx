@@ -7,7 +7,7 @@ import { fetchCharacters } from '../../lib/swapi';
 import { IPeopleResponse } from '../../types';
 
 export type PageProps = {
-  peopleResponse: IPeopleResponse; 
+  peopleResponse: IPeopleResponse;
 };
 
 export default function PageComponent(
@@ -20,7 +20,7 @@ export default function PageComponent(
         <title>Star Wars characters</title>
       </Head>
       <h1>Star Wars characters</h1>
-      <Characters persons={peopleResponse}/>
+      <Characters persons={peopleResponse} />
     </Layout>
   );
 }
