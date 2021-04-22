@@ -1,15 +1,12 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Head from 'next/head';
-
 import { Film } from '../components/film/Film';
-
 import { Layout } from '../components/layout/Layout';
-import { characterFragment } from '../graphql/characterFragment';
 import { fetchSwapi } from '../lib/swapi';
-import { IFilm } from '../types';
+import { IAllFilms } from '../types';
 
 export type PageProps = {
-  films: Array<IFilm> | null;
+  films: IAllFilms | null; 
 };
 
 export default function PageComponent(
@@ -27,26 +24,37 @@ export default function PageComponent(
         <title>Star Wars films</title>
       </Head>
       <h1>Star Wars films</h1>
-      {films.map((film, i) => (
-        <Film key={i} />
+      {films.allFilms.films.map((film, i) => (
+        <Film key={i} film={film}/>
       ))}
     </Layout>
   );
 }
 
 const query = `
-  {
-    # TODO sækja gögn um myndir
+  query {
+    allFilms {
+      films {
+        title
+        openingCrawl
+        episodeID
+        characterConnection {
+          characters {
+            name
+            id
+          }
+        }
+      }
+    } 
   }
-  ${characterFragment}
 `;
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
-  const films = await fetchSwapi<any>(query); // TODO EKKI any
+  const films = await fetchSwapi<IAllFilms>(query); 
 
   return {
     props: {
-      films,
+      films: films ?? null,
     },
   };
 };

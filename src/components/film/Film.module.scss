@@ -1,4 +1,20 @@
 
 .film {
-  
+    white-space: pre-line;
+}
+
+.film__opening {
+    font-family: monospace;
+    margin-right: 1rem;
+    width: 50%;
+    margin-bottom: 2rem;
+
+}
+
+.film__table {
+    display: flex;
+}
+
+.line {
+    margin-bottom: 2rem;
 }
