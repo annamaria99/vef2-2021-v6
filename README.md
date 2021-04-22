@@ -1,5 +1,7 @@
 # Vefforritun 2, 2021, verkefni 6
 
+Keyra með npm start 3000
+
 [Kynning á verkefni](https://youtu.be/).
 
 Tengjast skal SWAPI GraphQL endapunkt og birta upplýsingar um Star Wars myndir (fyrstu sex) ásamt karakterum í þeim.
